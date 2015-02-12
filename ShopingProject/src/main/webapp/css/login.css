@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+#main
+{
+	margin: 0 auto;
+	width: 300px;
+}
+
+.boardWrite {
+	margin-left: 450px;
+	margin-top: 100px;
+	width: 500px;
+	table-layout: fixed;
+	border: 1px solid #d7d5d5;
+	line-height: 180%;
+}
+
+#login, #password
+{
+	margin-bottom: 20px;
+	width :300px; 
+	height :30px;
+}
+
+#login
+{
+	margin-top: 50px;
+}
+
+a
+{
+	font-size: 10px;
+	color: #666666; 
+	background-color: transparent; 
+	text-decoration: none
+}
+
+#but 
+{
+	background-color: #33cc66;
+	width: 300px; 
+	height: 40px;
+	margin-bottom: 50px;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+}
+
+#adiv
+{
+	margin-left: 50px; 
+}

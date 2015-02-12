@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="msg.dao.MessageDAO">
+   	<select id="getMessageList" resultType="Message">
+   		select * from message where to_id = #{to_id}
+   	</select>
+   
+   <insert id="insertMessage" parameterType="Message">
+   <selectKey keyProperty="seq_no" resultType="int" 
+               order="BEFORE">
+         select message_seq_no_seq.nextval from dual
+      </selectKey>
+		insert into message(seq_no,from_id,to_id,content,send_date,confirm_date)
+		 values
+		(message_seq_no_seq.currval,#{from_Id}, #{to_Id}, #{content},sysdate,null)
+   </insert>
+   
+   <select id="getMessage" resultType="Message" parameterType="Integer">
+   	select * from message 
+   	where
+   	 seq_no = #{seq_no}
+   </select>
+
+	<update id="updateMessage" parameterType="Message">
+		update message set confirm_date = sysdate where seq_no = #{seq_no}
+	</update>   
+   
+   </mapper>
+   

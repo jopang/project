@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="logic.UserLogic">
+
+	<select id="login" resultType="UserInfo" parameterType="UserInfo">
+		SELECT * FROM userinfo
+	    WHERE m_id = #{m_id} AND m_pass = #{m_pass}
+	</select>
+	
+	<select id="confirm" resultType="UserInfo" parameterType="UserInfo">
+		SELECT * FROM userinfo
+		 WHERE m_id = #{m_id} AND m_pass = #{m_pass}
+	</select>
+
+	<insert id="addUserInfo" parameterType="UserInfo">
+   		insert into userinfo
+   		(mid,m_id,m_pass,m_name,m_gender,m_email1,m_email2,m_homephone,m_cellphone,
+   		m_zipcode1,m_zipcode2,m_addr1,m_addr2) 
+   		values (mem_seq.nextval,#{m_id},#{m_pass},#{m_name},#{m_gender},
+   		#{m_email1},#{m_email2},#{m_homephone},#{m_cellphone},#{m_zipcode1},#{m_zipcode2},
+   		#{m_addr1},#{m_addr2})
+   	</insert>
+	
+</mapper>   

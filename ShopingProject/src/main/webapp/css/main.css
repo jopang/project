@@ -1,0 +1,146 @@
+@CHARSET "UTF-8";
+
+/* css 초기화 웹의 여백을 없애며 초기화 해준다.  */
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+#wrap
+{
+	width:1024px;
+	height:768px;
+	margin:0 auto;
+}
+
+#main_top
+{
+	width:1024px;
+	height:158px;
+	xborder:solid 1px;
+	xbackground-color:skyblue;
+	margin:0 auto;
+}
+
+#main_left
+{
+	width:180px;
+	height:468px;
+	float:left;
+	xbackground-color:pink;	
+}
+
+#main_content
+{
+	width:844px;
+	height:468px;
+	float:right;
+	background-color:#FFFFC6;
+}
+
+#main_footer
+{
+	width:1024px;
+	height:150px;
+	clear:both;  /* 클리어속성이 없으면 레이아웃망가짐 메인탑아래에 붙는다 */
+	background-color:#93C47D;
+}
+
+/* 탑메뉴 CSS 시작 */
+/* 			<div id="top_logo"></div>
+			<div id="top_search"></div> */
+			
+#top_bar
+{
+	height:58px;
+	xbackground-color: red;
+}
+
+#top_bar> .top_right > li
+{	
+	display:inline;
+	float:right;
+	list-style: none;
+	text-decoration: none;
+	margin:3px;
+}
+
+#top_bar> .top_right > li > a
+{	
+	text-decoration: none;
+}
+
+#top_bar> .top_left > li
+{	
+	display:inline;
+	float:left;
+	list-style: none;
+	text-decoration: none;
+	margin:3px;
+}
+
+#top_bar> .top_left > li > a
+{	
+	text-decoration: none;
+}
+
+#top_logo
+{
+	width:298px;
+	height:98px;
+	xbackground-color: red;
+	float:left;
+}
+
+#top_search
+{	
+	width:722px;
+	height:98px;
+	float:right;
+	xbackground-color: gray;
+}
+
+.main_search
+{	
+	position:relative;
+	top:30%;
+}
+
+#main_searchbar
+{
+	width:450px;
+	height:40px;
+}
+
+#main_searchbtn
+{
+	margin-top: -3px;
+	width: 70px;
+	height: 41px;
+}
+
+/* main_content 영역 상품 이미지 영역  */
+
+#mainimg1{
+	width:844x;
+	height: 234px;
+	background-color:#C6FFFF;
+}
+#mainimg2{
+	width:422px;
+	height: 234px;
+	background-color:#00C6ED;
+	float:left;
+}
+#mainimg3{
+	width:422px;
+	height: 234px;
+	background-color:#0090B7;
+	float:left;
+}
+
+
+
+
+ 

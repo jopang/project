@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+
+#myPage_left
+{
+	width:200px;
+	height:500px;
+	float:left;
+	background-color:#fff5ee
+}
+#myPage_top
+{
+	width:600px;
+	height:50px;
+	xborder:solid 1px;
+	margin:0 auto;
+	margin-left:250px;
+}
+#myPage_center
+{
+	border:1px solid black;
+	width:600px;
+	height:500px;
+	xborder:solid 1px;
+	margin:0 auto;
+	margin-left:250px;
+	margin-top:10px;
+}
+#mypage
+{
+	background-color:#999999;
+	width:200px;
+	font-size:30px;
+	height:100px;
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle;
+	font-weight:bold;
+	background-color: #33cc66;
+	color:white;
+}
+#my
+{
+	margin-top:30px;
+	height:30px;
+	font-weight:bold;
+	margin-left:20px;
+	font-size:15px;
+	
+}
+a
+{
+	color: black; 
+	background-color: transparent; 
+	text-decoration: none
+}

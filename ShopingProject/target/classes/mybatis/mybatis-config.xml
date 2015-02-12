@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+	<!-- sql파일을 읽어준다. -->
+<configuration>
+	<properties resource="mybatis/db.properties"/>
+		
+	<!-- Null 타입허용 -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	   
+   <typeAliases>
+   <!-- 타입의 변수명을 board 로 하겠다 -->
+   		<typeAlias alias="UserInfo" type="bean.UserInfo"/>
+   		<typeAlias alias="ItemInfo" type="bean.ItemInfo"/>
+   		<typeAlias alias="Message" type="bean.Message"/>
+   	<!-- 	<typeAlias alias="UserDao" type="dao.UserDao"/> -->
+   </typeAliases>
+	   
+     
+	   
+</configuration>

@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+
+table
+{
+	table-layout: fixed;
+	border: 1px solid #d7d5d5;
+	margin-top: 20px;
+	margin-left: 300px;
+	height: 800px;
+}
+
+div{
+	width: 400px;
+	margin: 0 auto;
+}
+
+#text
+{
+	margin-left: 8px;
+	width :200px; 
+	height :25px;
+}
+
+#a
+{
+	text-align: right;
+	width:150px;
+	font-weight: bold;
+	height: 15px;
+}
+p
+{
+	width:150px;
+	margin-right: 50px;
+	text-align: right;
+	display:inline;
+}
+#email
+{
+	width :100px; 
+	height :30px;
+	margin-right: 50px;
+}
+#phone
+{
+	width :100px; 
+	height :30px;
+}
+#num
+{
+	width: 100px;
+	height :30px;
+}
+#zip
+{
+	width: 80px;
+	height :30px;
+}
+#address
+{
+	margin-top: 10px;
+	margin-left: 8px;
+	width :400px; 
+	height :30px;
+}
+#but
+{
+	margin-top: 50px;
+	margin-left: 600px;
+	width : 80px;
+	height : 50px;
+}
+#but1
+{
+	margin-top: 50px;
+	width : 80px;
+	height : 50px;
+}
+#a1
+{
+	text-align: left;
+	width:150px;
+	font-weight: bold;
+	height:70px;
+	background-color:#999999;
+}
+p
+{
+	font-size:30px;
+	margin-left:10px;
+}
+#sex
+{
+	margin-left:15px;
+}
