@@ -28,9 +28,15 @@
 	    WHERE m_name = #{m_name} AND m_cellphone = #{m_cellphone}
 	</select>
 	
+	<select id="passSearch" resultType="UserInfo" parameterType="UserInfo">
+		SELECT * FROM userinfo
+	    WHERE m_name = #{m_name} AND m_cellphone = #{m_cellphone} 
+	    AND m_email1 = #{m_email1} AND m_email2 = #{m_email2}
+	</select>
+	
 	<update id="updateUserInfo" parameterType="UserInfo">
 		update userinfo
-		set m_pass = #{m_pass}, m_name = #{m_name}, m_gender = #{m_gender},
+		set mid=#{mid}, m_pass = #{m_pass}, m_name = #{m_name}, m_gender = #{m_gender},
    		m_email1 = #{m_email1}, m_email2 = #{m_email2}, m_homephone = #{m_homephone},
    		m_cellphone = #{m_cellphone}, m_zipcode1 = #{m_zipcode1},
    		m_zipcode2 = #{m_zipcode2}, m_addr1 = #{m_addr1}, m_addr2 = #{m_addr2}

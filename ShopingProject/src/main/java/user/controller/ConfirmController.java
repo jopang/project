@@ -32,7 +32,7 @@ public class ConfirmController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public String onSubmit(@ModelAttribute("modifyForm") UserInfo formModel, HttpSession session, Model model) {
+	public String onSubmit(@ModelAttribute("confirmForm") UserInfo formModel, HttpSession session, Model model) {
 		UserInfo a = (UserInfo)session.getAttribute("user");
 		formModel.setM_id(a.getM_id());
 		UserInfo loginUser = this.userLogic.confirm(formModel);	

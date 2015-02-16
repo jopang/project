@@ -11,6 +11,8 @@ public interface UserLogic {
 	void addUser(UserInfo userInfo);
 	//아이디찾기
 	UserInfo idSearch(UserInfo userInfo);
+	//비밀번호찾기
+	UserInfo passSearch(UserInfo userInfo);
 	//회원정보수정
-	UserInfo modifyUser(UserInfo userInfo);
+	public void modifyUser(UserInfo userInfo);
 }

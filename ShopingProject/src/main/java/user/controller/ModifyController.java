@@ -30,8 +30,8 @@ public class ModifyController {
 	public String onSubmit(@Valid @ModelAttribute("modifyForm") UserInfo modifyForm,
 		BindingResult result,Model model) {
 		
-		this.userLogic.addUser(modifyForm);
-		return "redirect:/login.html";
+		this.userLogic.modifyUser(modifyForm);
+		return "redirect:/index.html";
 
 	}
 }

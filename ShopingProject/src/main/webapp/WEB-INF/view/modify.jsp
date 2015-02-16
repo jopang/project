@@ -85,16 +85,16 @@
 		<hr></hr>
 	</div>
 	<div class="modifybox">
-		<form:input path="m_id" placeholder="${user.m_id }" id="m_id" readOnly="true"/>
+		<form:input path="m_id" value="${user.m_id }" id="m_id" readOnly="true"/>
 	</div>
 	<div class="modifybox">
-		<form:password path="m_pass" placeholder="비밀번호" id="m_pass"/>
+		<form:password path="m_pass" value="sdf" id="m_pass"/>
 	</div>
 	<div class="modifybox">
-		<form:password path="m_pass1" placeholder="비밀번호 확인" id="m_passchk"/>
+		<form:password path="m_pass1" value="sdf" id="m_passchk"/>
 	</div>
 	<div class="modifybox">
-		<form:input path="m_name" placeholder="${user.m_name }" id="m_name"/>
+		<form:input path="m_name" value="${user.m_name }" id="m_name"/>
 	</div>
 	
 	<div class="modifybox">	
@@ -103,8 +103,8 @@
 	</div>	
 	
 	<div class="modifybox">	
-		<form:input path="m_email1" id="emailid" placeholder="${user.m_email1 }" /> 
-			@<form:input path="m_email2" id="emailtext" placeholder="${user.m_email2 }"/>
+		<form:input path="m_email1" id="emailid" value="${user.m_email1 }" /> 
+			@<form:input path="m_email2" id="emailtext" value="${user.m_email2 }"/>
 		<form:select path="emailselect" id="emailselect">
 			<%
 			String [] emailcode = {"직접 입력","daum.net","nate.com","naver.com",
@@ -135,7 +135,7 @@
 	
 	<div class="modifybox">	 
 			
-		<form:select path="m_cellphone" id="cellNumber">	
+		<form:select path="m_cellphone" id="cellNumber" placeholder="dd">	
 			<%
 				String [] cellphone = {"010","011","016","019","017","018"};
 			%>
@@ -144,16 +144,16 @@
 			<%} %>
 		</form:select>
 	
-		<form:input path="m_cellphone" id="num" placeholder=""/>
+		<form:input path="m_cellphone" id="num" placeholder="dd"/>
 	</div>
 	
 	
 	<div class="modifybox">
-		<form:input path="m_zipcode1" id="post1"/>- 
-		<form:input path="m_zipcode2" id="post2"/>
+		<form:input path="m_zipcode1" id="post1" value="${user.m_zipcode1}"/>- 
+		<form:input path="m_zipcode2" id="post2" value="${user.m_zipcode2}"/>
 		<input type="button" onclick="openDaumPostcode()" value="우편번호찾기"/><br/>
-		<form:input path="m_addr1" id="addr1"/>
-		<form:input path="m_addr2" id="addr2" placeholder=""/>
+		<form:input path="m_addr1" id="addr1" value="${user.m_addr1}"/>
+		<form:input path="m_addr2" id="addr2" value="${user.m_addr2}"/>
 	</div>
 	
 	<div class="modifybox">

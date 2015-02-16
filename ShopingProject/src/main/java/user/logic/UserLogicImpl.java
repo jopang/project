@@ -29,10 +29,16 @@ public class UserLogicImpl implements UserLogic{
 		// TODO Auto-generated method stub
 		return this.userDao.idSearch(userInfo);
 	}
-
-	public UserInfo modifyUser(UserInfo userInfo) {
+	
+	public UserInfo passSearch(UserInfo userInfo) {
 		// TODO Auto-generated method stub
-		return this.userDao.modifyUser(userInfo);
+		return this.userDao.passSearch(userInfo);
 	}
+
+	public void modifyUser(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		this.userDao.modifyUser(userInfo);
+	}
+
 }
 	  
