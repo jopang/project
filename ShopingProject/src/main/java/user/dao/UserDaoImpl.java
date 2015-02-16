@@ -16,11 +16,19 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao {
 	}
 	public void addUser(UserInfo userinfo) {
 		getSqlSession().insert("addUserInfo", userinfo);
-		
 	}
 	public UserInfo confirm(UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectOne("confirm", userInfo);
 	}
+	public UserInfo idSearch(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("idSearch", userInfo);
+	}
+	public UserInfo modifyUser(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

@@ -36,14 +36,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form modelAttribute="loginForm">
+<form:form modelAttribute="confirmForm">
 <div id="main">
 	<div id="mod">회원정보 수정</div>
 	<div id="mod1">정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인 합니다.</div>
 </div>
 <div id="a">필수정보<hr>
 	<div>아이디 ${user.m_id}</div>
-	<div>비밀번호<form:password path="m_pwd" id="password"/></div>
+	<div>비밀번호<form:password path="m_pass" id="password"/></div>
 	<input type="submit" value="로그인" id="but">
 	<input type="reset" value="취소" id="but">
 </div>

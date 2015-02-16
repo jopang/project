@@ -27,12 +27,12 @@ public class ConfirmController {
 	@RequestMapping(method=RequestMethod.GET)
 	public String toLoginView(Model model) {
 		UserInfo info = new UserInfo();
-		model.addAttribute("loginForm", info);
+		model.addAttribute("confirmForm", info);
 		return "confirm";
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public String onSubmit(@ModelAttribute UserInfo formModel, HttpSession session, Model model) {
+	public String onSubmit(@ModelAttribute("modifyForm") UserInfo formModel, HttpSession session, Model model) {
 		UserInfo a = (UserInfo)session.getAttribute("user");
 		formModel.setM_id(a.getM_id());
 		UserInfo loginUser = this.userLogic.confirm(formModel);	
@@ -40,7 +40,7 @@ public class ConfirmController {
 			return "redirect:/confirm.html";
 		} else {
 			session.setAttribute("user", loginUser);
-			return "modify"; //메인 화면으로 이동
+			return "modify"; //수정 화면으로 이동
 		}
 	}
 }

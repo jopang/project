@@ -9,5 +9,8 @@ public interface UserDao {
 	UserInfo confirm(UserInfo userInfo);
 	//사용자추가
 	public void addUser(UserInfo userinfo);
-
+	//아이디찾기
+	UserInfo idSearch(UserInfo userInfo);
+	//회원정보수정
+	UserInfo modifyUser(UserInfo userInfo);
 }

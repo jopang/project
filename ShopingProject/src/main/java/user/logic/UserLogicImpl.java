@@ -24,5 +24,15 @@ public class UserLogicImpl implements UserLogic{
 		// TODO Auto-generated method stub
 		return this.userDao.confirm(userInfo);
 	}
+
+	public UserInfo idSearch(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		return this.userDao.idSearch(userInfo);
+	}
+
+	public UserInfo modifyUser(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		return this.userDao.modifyUser(userInfo);
+	}
 }
 	  

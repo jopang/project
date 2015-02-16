@@ -21,9 +21,7 @@ h3
 	height:400px;
 	border:1px solid black;
 }
-	<c:if test="${sum%3==0 }">
-	<tr>
-	</c:if>
+
 
 </style>	
 <table border='0' style='table-layout: fixed'>

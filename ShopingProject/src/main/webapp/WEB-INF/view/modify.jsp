@@ -1,85 +1,165 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript">
-function zip_search() {
-	window.open('login.jsp','','scrollbars=yes, width=450, height=250, top=300, left=300');
-}
+	
+	function openDaumPostcode() {
+	    new daum.Postcode({
+	        oncomplete: function(data) {
+	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+	            // 우편번호와 주소 정보를 해당 필드에 넣고, 커서를 상세주소 필드로 이동한다.
+	            document.getElementById('post1').value = data.postcode1;
+	            document.getElementById('post2').value = data.postcode2;
+	            document.getElementById('addr1').value = data.address;
+	
+	            //전체 주소에서 연결 번지 및 ()로 묶여 있는 부가정보를 제거하고자 할 경우,
+	            //아래와 같은 정규식을 사용해도 된다. 정규식은 개발자의 목적에 맞게 수정해서 사용 가능하다.
+	            //var addr = data.address.replace(/(\s|^)\(.+\)$|\S+~\S+/g, '');
+	            //document.getElementById('addr').value = addr;
+	
+	            document.getElementById('addr2').focus();
+	        }
+	    }).open();
+	}
+
+	$(document).ready(function(){
+		
+		$('#emailselect').change(function(){
+			$('#emailselect option:selected').each(function(){
+			
+				if($(this).val()=='직접 입력'){
+					//직접입력할경우
+					$('#emailtext').val('');
+					
+				}
+				
+				else{
+					$('#emailtext').val($(this).text());
+				}
+			});
+		});	
+	
+	});
+	
+	
+		
 </script>
+
+
+<style type="text/css">
+	
+	#container{
+		width:800px;
+		margin:0 auto;
+		border:solid;
+		margin-top:50px;
+	}
+	
+	.modifybox{
+		width:600px;
+		margin:0 auto;
+		padding:20px;
+		text-align: center;
+	}
+
+</style>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/table.css"> 
-<title>회원정보 수정</title>
+<title>회원가입</title>
 
 </head>
-<body class="aaa">
+<body id="container">
 
-<form name="writeForm" id="write" method="post" action="#">
+<form:form modelAttribute="modifyForm">
 
-<table>
-	<tr>
-		<td id="a1" colspan=2><p>회원정보 수정</p></td>
-	</tr>
-	<tr>
-		<td id="a">아이디 : </td>
-		<td><input type="text" value="${user.m_id}" id="text"/></td>
-	</tr>
-	<tr>
-		<td id="a">비밀번호 : </td>
-		<td><input type="password" value="" id="text"/></td>
-	</tr>
-	<tr>
-		<td id="a">비밀번호확인 : </td>
-		<td><input type="password" value="" id="text"/></td>
-	</tr>
-	<tr>
-		<td id="a">이름 : </td>
-		<td><input type="text" value="" id="text"/></td>
-	</tr>
-		<tr>
-		<td id="a">성별 : </td>
-		<td><input type="radio" value="" id="sex"/> 남자
-			<input type="radio" value="" id="sex"/> 여자
-		</td>
-	</tr>
-	<tr>
-		<td id="a">이메일 : </td>
-		<td><input type="text" value="" id="text"/> @<input type="text" value="" id="text"/>
-		<select name="email2" id="email">
-			<option value="naver.com">naver.com</option>
-			<option value="daum.net">daum.net</option>
-			<option value="nate.com">nate.com</option>
-			<option value="hotmail.com">hotmail.com</option>
-			<option value="google.com">google.com</option>
-		</select>
-		</td>
-	</tr>
-	<tr>
-		<td id="a">전화번호 : 
+	<div class="modifybox">
+		<h2>회원정보수정</h2>
+		<hr></hr>
+	</div>
+	<div class="modifybox">
+		<form:input path="m_id" placeholder="${user.m_id }" id="m_id" readOnly="true"/>
+	</div>
+	<div class="modifybox">
+		<form:password path="m_pass" placeholder="비밀번호" id="m_pass"/>
+	</div>
+	<div class="modifybox">
+		<form:password path="m_pass1" placeholder="비밀번호 확인" id="m_passchk"/>
+	</div>
+	<div class="modifybox">
+		<form:input path="m_name" placeholder="${user.m_name }" id="m_name"/>
+	</div>
+	
+	<div class="modifybox">	
+		<form:radiobutton path="m_gender" value="male"/>남
+		<form:radiobutton path="m_gender" value="female"/>여
+	</div>	
+	
+	<div class="modifybox">	
+		<form:input path="m_email1" id="emailid" placeholder="${user.m_email1 }" /> 
+			@<form:input path="m_email2" id="emailtext" placeholder="${user.m_email2 }"/>
+		<form:select path="emailselect" id="emailselect">
+			<%
+			String [] emailcode = {"직접 입력","daum.net","nate.com","naver.com",
+					"gmail.com","hanmail.net"};
+				
+				for(int i=0;i<emailcode.length;i++){
+			%>
+			<form:option value="<%=emailcode[i]%>"></form:option>
+			<%} %>
+		</form:select>
+	</div>
+	<div class="modifybox">	 
+			
+		<form:select path="m_homephone" id="homeNumber">	
+			<%
+				String [] homephone = {"02","051","053","032","062","042",
+					"044","031","033","043","041","063","061",
+					"054","055","064"};
+			%>
+			<%for(int i=0; i<homephone.length;i++){ %>
+				<form:option value="<%=homephone[i] %>"></form:option>
+			<%} %>
+		</form:select>
 		
-		</td>
 		
-		<td>&nbsp; 
-		<select id="phone">
-			<option value="010">010</option>
-			<option value="011">011</option>
-		</select>&nbsp;- 
-		<input type="text" value="" id="num"/>&nbsp;- 
-		<input type="text" value="" id="num"/></td>
-	</tr>
-	<tr>
-		<td id="a">주소 : </td>
-		<td>&nbsp;
-		<input type="text" value="" id="zip"/>&nbsp;- 
-		<input type="text" value="" id="zip"/>&nbsp;
-		<input type="button" value="우편번호찾기" onclick="zip_search();"/><br/>
-		<input type="text" value="" id="address"/><br/>
-		<input type="text" value="" id="address"/></td>
-	</tr>
-</table>
-<input type="submit" value="수정" id="but"/>&nbsp;
-<input type="reset" value="취소" id="but1" onclick="location.href='index.html'"/>
-</form>
+		<form:input path="m_homephone" id="num" placeholder=""/>
+	</div>
+	
+	<div class="modifybox">	 
+			
+		<form:select path="m_cellphone" id="cellNumber">	
+			<%
+				String [] cellphone = {"010","011","016","019","017","018"};
+			%>
+			<%for(int i=0; i<cellphone.length;i++){ %>
+				<form:option value="<%=cellphone[i] %>"></form:option>
+			<%} %>
+		</form:select>
+	
+		<form:input path="m_cellphone" id="num" placeholder=""/>
+	</div>
+	
+	
+	<div class="modifybox">
+		<form:input path="m_zipcode1" id="post1"/>- 
+		<form:input path="m_zipcode2" id="post2"/>
+		<input type="button" onclick="openDaumPostcode()" value="우편번호찾기"/><br/>
+		<form:input path="m_addr1" id="addr1"/>
+		<form:input path="m_addr2" id="addr2" placeholder=""/>
+	</div>
+	
+	<div class="modifybox">
+		<input type="submit" value="확인" id="but"/>&nbsp;
+		<input type="reset" value="취소" id="but1" onclick="location.href='index.html'"/>
+	</div>
+</form:form>
 </body>
 </html>

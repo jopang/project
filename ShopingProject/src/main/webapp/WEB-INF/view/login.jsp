@@ -30,7 +30,7 @@
 		</div>
 		<hr>
 		<div id="adiv">
-			<a target="_blank" href="#">아이디찾기 </a>&nbsp;|&nbsp;   
+			<a target="_blank" href="/ShopingProject/idSearch.html">아이디찾기 </a>&nbsp;|&nbsp;   
 			<a target="_blank" href="#">비밀번호찾기</a>&nbsp;|&nbsp; 
 			<a target="_blank" href="#">회원가입</a>
 		</div>
